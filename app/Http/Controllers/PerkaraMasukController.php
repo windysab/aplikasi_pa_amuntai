@@ -16,23 +16,6 @@ class PerkaraMasukController extends Controller
 
     public function index()
     {
-        //         SELECT nomor_perkara, tanggal_pendaftaran, perkara_pihak1.`nama`, perkara_pihak1.`alamat`, tanggal_putusan
-        // FROM perkara
-        // LEFT JOIN perkara_pihak1 ON perkara.`perkara_id`=perkara_pihak1.`perkara_id`
-        // LEFT JOIN perkara_putusan ON perkara.`perkara_id`=perkara_putusan.`perkara_id`
-        // WHERE YEAR(tanggal_pendaftaran)='2023'
-        // AND perkara_pihak1.`urutan`='1'
-        // AND perkara_pihak1.`alamat` LIKE '%PAMINGGIR%'
-
-        // $perkaraMasuk = PerkaraMasuk::select('nomor_perkara', 'tanggal_pendaftaran', 'perkara_pihak1.nama', 'perkara_pihak1.alamat', 'tanggal_putusan')
-        //     ->leftJoin('perkara_pihak1', 'perkara.perkara_id', '=', 'perkara_pihak1.perkara_id')
-        //     ->leftJoin('perkara_putusan', 'perkara.perkara_id', '=', 'perkara_putusan.perkara_id')
-        //     ->whereYear('tanggal_pendaftaran', '2023')
-        //     ->where('perkara_pihak1.urutan', '1')
-        //     ->where('perkara_pihak1.alamat', 'like', '%PAMINGGIR%')
-        //     ->get();
-
-        // return view('pages.perkara-masuk.index', compact('perkaraMasuk'));
 
 
 
