@@ -40,10 +40,34 @@
 
                                 <form method="GET" action="{{ route('perkara-masuk.index') }}">
                                     @csrf
+
+                                    <select name="alamat" required="">
+                                        <option value="Amuntai Selatan" {{ old('alamat')=='Amuntai Selatan' ? 'selected'
+                                            : '' }}>Amuntai Selatan</option>
+                                        <option value="Amuntai Tengah" {{ old('alamat')=='Amuntai Tengah' ? 'selected'
+                                            : '' }}>Amuntai Tengah</option>
+                                        <option value="Amuntai Utara" {{ old('alamat')=='Amuntai Utara' ? 'selected'
+                                            : '' }}>Amuntai Utara</option>
+                                        <option value="Babirik" {{ old('alamat')=='Babirik' ? 'selected' : '' }}>Babirik
+                                        </option>
+                                        <option value="Banjang" {{ old('alamat')=='Banjang' ? 'selected' : '' }}>Banjang
+                                        </option>
+                                        <option value="Danau Panggang" {{ old('alamat')=='Danau Panggang' ? 'selected'
+                                            : '' }}>Danau Panggang</option>
+                                        <option value="Haur Gading" {{ old('alamat')=='Haur Gading' ? 'selected' : ''
+                                            }}>Haur Gading</option>
+                                        <option value="Paminggir" {{ old('alamat')=='Paminggir' ? 'selected' : '' }}>
+                                            Paminggir</option>
+                                        <option value="Sungai Pandan" {{ old('alamat')=='Sungai Pandan' ? 'selected'
+                                            : '' }}>Sungai Pandan</option>
+                                        <option value="Sungai Tabukan" {{ old('alamat')=='Sungai Tabukan' ? 'selected'
+                                            : '' }}>Sungai Tabukan</option>
+                                    </select>
+
                                     {{-- <select name="alamat" required>
-                                        @foreach($kecamatans as $kecamatan)
-                                        <option value="{{ $kecamatan }}" {{ old('alamat')==$kecamatan ? 'selected' : ''
-                                            }}>{{ $kecamatan }}</option>
+                                        @foreach($alamats as $alamat)
+                                        <option value="{{ $alamat }}" {{ old('alamat')==$alamat ? 'selected' : '' }}>{{
+                                            $alamat }}</option>
                                         @endforeach
                                     </select> --}}
                                     Bulan :
@@ -93,6 +117,7 @@
                                     </tr>
                                     @foreach ($perkaras as $perkara)
                                     <tr>
+
                                         <td>{{ $perkara->nomor_perkara }}</td>
                                         <td>{{ $perkara->tanggal_pendaftaran }}</td>
                                         <td>{{ $perkara->nama }}</td>

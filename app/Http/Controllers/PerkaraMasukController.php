@@ -60,9 +60,18 @@ class PerkaraMasukController extends Controller
 
     public function index(Request $request)
     {
+
+        $validKecamatan = ['Amuntai Selatan', 'Amuntai Tengah', 'Amuntai Utara', 'Babirik', 'Banjang', 'Danau Panggang', 'Haur Gading', 'Paminggir', 'Sungai Pandan', 'Sungai Tabukan'];
+        $defaultKecamatan = $validKecamatan[0];
+
         $tahun = $request->input('tahun', date('Y'));
         $bulan = $request->input('bulan', date('m'));
-        $alamat = $request->input('alamat', '%amuntai selatan%');
+        $alamat = in_array($request->input('alamat'), $validKecamatan) ? $request->input('alamat') : $defaultKecamatan;
+
+
+        // $tahun = $request->input('tahun', date('Y'));
+        // $bulan = $request->input('bulan', date('m'));
+        // $alamat = $request->input('alamat', '%amuntai selatan%');
 
         $perkaras = DB::table('perkara')
             ->leftJoin('perkara_pihak1', 'perkara.perkara_id', '=', 'perkara_pihak1.perkara_id')
@@ -71,8 +80,14 @@ class PerkaraMasukController extends Controller
             ->whereYear('tanggal_pendaftaran', '=', $tahun)
             ->whereMonth('tanggal_pendaftaran', '=', $bulan)
             ->where('perkara_pihak1.urutan', '=', 1)
-            ->where('perkara_pihak1.alamat', 'like', $alamat)
-            ->get();
+            ->when($alamat, function ($query, $alamat) {
+                return $query->where('perkara_pihak1.alamat', 'like', '%' . $alamat . '%');
+            })
+            ->get();;
+
+        // ->where('perkara_pihak1.alamat', 'like', $alamat)
+        // ->toSql();
+        // dd($perkaras);
 
         $kecamatans = DB::table('perkara_pihak1')->select('alamat')->pluck('alamat');
         $bulan = [
