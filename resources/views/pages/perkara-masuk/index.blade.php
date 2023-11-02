@@ -38,90 +38,31 @@
                             <div class="card-header">
 
 
-                                <form method="POST" , action="{{ route('perkara-masuk.index') }}">
-                                    Kecamatan :
-                                    <select name="kecamatan" required="">
-                                        <option value="Amuntai Selatan" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Amuntai Selatan' ) ? 'selected' : '' ; ?>>Amuntai
-                                            Selatan</option>
-                                        <option value="Amuntai Tengah" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Amuntai Tengah' ) ? 'selected' : '' ; ?>>Amuntai
-                                            Tengah</option>
-                                        <option value="Amuntai Utara" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Amuntai Utara' ) ? 'selected' : '' ; ?>>Amuntai Utara
-                                        </option>
-                                        <option value="Babirik" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Babirik' ) ? 'selected' : '' ; ?>>Babirik</option>
-                                        <option value="Banjang" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Banjang' ) ? 'selected' : '' ; ?>>Banjang</option>
-                                        <option value="Danau Panggang" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Danau Panggang' ) ? 'selected' : '' ; ?>>Danau
-                                            Panggang</option>
-                                        <option value="Haur Gading" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Haur Gading' ) ? 'selected' : '' ; ?>>Haur Gading
-                                        </option>
-                                        <option value="Paminggir" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Paminggir' ) ? 'selected' : '' ; ?>>Paminggir
-                                        </option>
-                                        <option value="Sungai Pandan" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Sungai Pandan' ) ? 'selected' : '' ; ?>>Sungai Pandan
-                                        </option>
-                                        <option value="Sungai Tabukan" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='Sungai Tabukan' ) ? 'selected' : '' ; ?>>Sungai
-                                            Tabukan</option>
-
-                                    </select>
+                                <form method="GET" action="{{ route('perkara-masuk.index') }}">
+                                    @csrf
+                                    {{-- <select name="alamat" required>
+                                        @foreach($kecamatans as $kecamatan)
+                                        <option value="{{ $kecamatan }}" {{ old('alamat')==$kecamatan ? 'selected' : ''
+                                            }}>{{ $kecamatan }}</option>
+                                        @endforeach
+                                    </select> --}}
                                     Bulan :
-                                    <select name="lap_bulan" required="">
-                                        <option value="01" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='01' ) ? 'selected' : '' ; ?>>Januari</option>
-                                        <option value="02" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='02' ) ? 'selected' : '' ; ?>>Februari</option>
-                                        <option value="03" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='03' ) ? 'selected' : '' ; ?>>Maret</option>
-                                        <option value="04" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='04' ) ? 'selected' : '' ; ?>>April</option>
-                                        <option value="05" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='05' ) ? 'selected' : '' ; ?>>Mei</option>
-                                        <option value="06" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='06' ) ? 'selected' : '' ; ?>>Juni</option>
-                                        <option value="07" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='07' ) ? 'selected' : '' ; ?>>Juli</option>
-                                        <option value="08" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='08' ) ? 'selected' : '' ; ?>>Agustus</option>
-                                        <option value="09" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='09' ) ? 'selected' : '' ; ?>>September</option>
-                                        <option value="10" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='10' ) ? 'selected' : '' ; ?>>Oktober</option>
-                                        <option value="11" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='11' ) ? 'selected' : '' ; ?>>Nopember</option>
-                                        <option value="12" <?php echo (isset($_POST['lap_bulan']) &&
-                                            $_POST['lap_bulan']==='12' ) ? 'selected' : '' ; ?>>Desember</option>
+                                    <select name="bulan" required>
+                                        @foreach($bulan as $key => $value)
+                                        <option value="{{ $key }}" {{ old('bulan')==$key ? 'selected' : '' }}>{{
+                                            $value }}</option>
+                                        @endforeach
                                     </select>
                                     Tahun :
-                                    <select name="kecamatan" required="">
-                                        <option value="2016" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2016' ) ? 'selected' : '' ; ?>>2016</option>
-                                        <option value="2017" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2017' ) ? 'selected' : '' ; ?>>2017</option>
-                                        <option value="2018" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2018' ) ? 'selected' : '' ; ?>>2018</option>
-                                        <option value="2019" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2019' ) ? 'selected' : '' ; ?>>2019</option>
-                                        <option value="2020" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2020' ) ? 'selected' : '' ; ?>>2020</option>
-                                        <option value="2021" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2021' ) ? 'selected' : '' ; ?>>2021</option>
-                                        <option value="2022" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2022' ) ? 'selected' : '' ; ?>>2022</option>
-                                        <option value="2023" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2023' ) ? 'selected' : '' ; ?>>2023</option>
-                                        <option value="2024" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2024' ) ? 'selected' : '' ; ?>>2024</option>
-                                        <option value="2025" <?php echo (isset($_POST['kecamatan']) &&
-                                            $_POST['kecamatan']==='2025' ) ? 'selected' : '' ; ?>>2025</option>
+                                    <select name="tahun" required>
+                                        @foreach($tahun as $thn)
+                                        <option value="{{ $thn }}" {{ old('tahun')==$thn ? 'selected' : '' }}>{{
+                                            $thn }}</option>
+                                        @endforeach
                                     </select>
                                     <input class="btn btn-primary" type="submit" name="btn" value="Tampilkan" />
+                                </form>
+
                             </div>
                         </div>
                         <div class="card-body">
