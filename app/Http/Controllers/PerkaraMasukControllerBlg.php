@@ -6,7 +6,7 @@ use App\Models\PerkaraMasuk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PerkaraMasukController extends Controller
+class PerkaraMasukControllerBlg extends Controller
 {
 
     /**
@@ -60,8 +60,10 @@ class PerkaraMasukController extends Controller
 
     public function index(Request $request)
     {
+        //Kabupaten Balangan
+        $validKecamatan = ['Paringin', 'Paringin Selatan', 'Juai', 'Halong', 'Awayan', 'Batu Licin', 'Lampihong', 'Paringin Utara', 'Tebing Tinggi', 'Batu Mandi', 'Juai'];
 
-        $validKecamatan = ['Amuntai Selatan', 'Amuntai Tengah', 'Amuntai Utara', 'Babirik', 'Banjang', 'Danau Panggang', 'Haur Gading', 'Paminggir', 'Sungai Pandan', 'Sungai Tabukan'];
+        // $validKecamatan = ['Batu Mandi', 'Paringin Selatan', ];
         $defaultKecamatan = $validKecamatan[0];
 
         $tahun = $request->input('tahun', date('Y'));
@@ -117,7 +119,7 @@ class PerkaraMasukController extends Controller
         $currentYear = date('Y');
         $tahun = range($currentYear - 5, $currentYear + 5);
 
-        return view('pages.perkara-masuk.index', compact('perkaras', 'kecamatans', 'bulan', 'tahun', 'cari'));
+        return view('pages.perkara-masuk-blg.index', compact('perkaras', 'kecamatans', 'bulan', 'tahun', 'cari'));
     }
 
     /**

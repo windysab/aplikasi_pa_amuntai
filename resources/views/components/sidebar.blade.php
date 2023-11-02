@@ -33,6 +33,9 @@
                     <li>
                         <a class="nav-link" href="{{ route('perkara-masuk.index') }}">HSU</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="{{ route('perkara-masuk-blg.index') }}">BALANGAN</a>
+                    </li>
 
                 </ul>
             </li>

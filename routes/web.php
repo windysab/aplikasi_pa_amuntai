@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\PerkaraMasukController;
-use App\Http\Controllers\ScheduleController;
-use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\PerkaraMasukController;
+use App\Http\Controllers\PerkaraMasukControllerBlg;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('perkara-masuk', PerkaraMasukController::class);
+Route::resource('perkara-masuk-blg', PerkaraMasukControllerBlg::class);
+
 // Route::get('/perkara-masuk', [PerkaraMasukController::class, 'index'])->name('perkara-masuk.index');
 
 // // resource route for subject with middleware auth
