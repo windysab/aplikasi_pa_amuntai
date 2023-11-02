@@ -82,8 +82,8 @@ class PerkaraMasukController extends Controller
             ->where('perkara_pihak1.urutan', '=', 1)
             ->when($alamat, function ($query, $alamat) {
                 return $query->where('perkara_pihak1.alamat', 'like', '%' . $alamat . '%');
-            })
-            ->get();;
+            })->paginate(10);
+        // ->get();;
 
         // ->where('perkara_pihak1.alamat', 'like', $alamat)
         // ->toSql();

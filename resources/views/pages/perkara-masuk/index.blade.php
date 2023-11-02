@@ -108,7 +108,7 @@
                             <div class="table-responsive">
                                 <table class="table-striped table">
                                     <tr>
-
+                                        <th>No</th>
                                         <th>Nomor Perkara</th>
                                         <th>tgl_pendaftran</th>
                                         <th>Nama</th>
@@ -117,6 +117,8 @@
                                     </tr>
                                     @foreach ($perkaras as $perkara)
                                     <tr>
+                                        {{-- <th>No</th> --}}
+                                        <td>{{ $loop->iteration + $perkaras->firstItem() - 1 }}</td>
 
                                         <td>{{ $perkara->nomor_perkara }}</td>
                                         <td>{{ $perkara->tanggal_pendaftaran }}</td>
@@ -148,9 +150,9 @@
 
                                 </table>
                             </div>
-                            {{-- <div class="float-right">
+                            <div class="float-right">
                                 {{ $perkaras->withQueryString()->links() }}
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
