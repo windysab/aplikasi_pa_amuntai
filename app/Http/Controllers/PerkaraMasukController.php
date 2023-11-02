@@ -73,6 +73,19 @@ class PerkaraMasukController extends Controller
         // $bulan = $request->input('bulan', date('m'));
         // $alamat = $request->input('alamat', '%amuntai selatan%');
 
+        // $perkaras = DB::table('perkara')
+        //     ->leftJoin('perkara_pihak1', 'perkara.perkara_id', '=', 'perkara_pihak1.perkara_id')
+        //     ->leftJoin('perkara_putusan', 'perkara.perkara_id', '=', 'perkara_putusan.perkara_id')
+        //     ->select('perkara.nomor_perkara', 'perkara.tanggal_pendaftaran', 'perkara_pihak1.nama', 'perkara_pihak1.alamat', 'perkara_putusan.tanggal_putusan')
+        //     ->whereYear('tanggal_pendaftaran', '=', $tahun)
+        //     ->whereMonth('tanggal_pendaftaran', '=', $bulan)
+        //     ->where('perkara_pihak1.urutan', '=', 1)
+        //     ->when($alamat, function ($query, $alamat) {
+        //         return $query->where('perkara_pihak1.alamat', 'like', '%' . $alamat . '%');
+        //     })->paginate(10);
+
+        $cari = $request->get('cari');
+
         $perkaras = DB::table('perkara')
             ->leftJoin('perkara_pihak1', 'perkara.perkara_id', '=', 'perkara_pihak1.perkara_id')
             ->leftJoin('perkara_putusan', 'perkara.perkara_id', '=', 'perkara_putusan.perkara_id')
@@ -82,7 +95,11 @@ class PerkaraMasukController extends Controller
             ->where('perkara_pihak1.urutan', '=', 1)
             ->when($alamat, function ($query, $alamat) {
                 return $query->where('perkara_pihak1.alamat', 'like', '%' . $alamat . '%');
-            })->paginate(10);
+            })
+            ->when($cari, function ($query, $cari) {
+                return $query->where('perkara_pihak1.nama', 'like', '%' . $cari . '%');
+            })
+            ->paginate(10);
         // ->get();;
 
         // ->where('perkara_pihak1.alamat', 'like', $alamat)
@@ -99,7 +116,7 @@ class PerkaraMasukController extends Controller
         $currentYear = date('Y');
         $tahun = range($currentYear - 5, $currentYear + 5);
 
-        return view('pages.perkara-masuk.index', compact('perkaras', 'kecamatans', 'bulan', 'tahun'));
+        return view('pages.perkara-masuk.index', compact('perkaras', 'kecamatans', 'bulan', 'tahun', 'cari'));
     }
 
     /**
