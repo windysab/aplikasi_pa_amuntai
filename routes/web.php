@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PerkaraMasukController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\UserController;
@@ -31,6 +32,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('pages.app.dashboard-siakad', ['type_menu' => '']);
 })->name('home');
+
+Route::resource('perkara-masuk', PerkaraMasukController::class);
 
 // // resource route for subject with middleware auth
 // Route::middleware(['auth'])->group(function () {

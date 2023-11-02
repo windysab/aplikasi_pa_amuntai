@@ -31,7 +31,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Subjects</span></a>
                 <ul class="dropdown-menu">
                     <li>
-                        {{-- <a class="nav-link" href="{{ route('subject.index') }}">Subject List</a> --}}
+                        <a class="nav-link" href="{{ route('perkara-masuk.index') }}">Perkara List</a>
                     </li>
 
                 </ul>
