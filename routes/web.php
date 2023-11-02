@@ -34,7 +34,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('perkara-masuk', PerkaraMasukController::class);
-Route::get('/perkara-masuk', [PerkaraMasukController::class, 'index'])->name('perkara-masuk.index');
+// Route::get('/perkara-masuk', [PerkaraMasukController::class, 'index'])->name('perkara-masuk.index');
 
 // // resource route for subject with middleware auth
 // Route::middleware(['auth'])->group(function () {
