@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PerkaraController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\PerkaraMasukController;
@@ -36,6 +37,10 @@ Route::get('/', function () {
 
 Route::resource('perkara-masuk', PerkaraMasukController::class);
 Route::resource('perkara-masuk-blg', PerkaraMasukControllerBlg::class);
+
+// Route::get('/perkara', [PerkaraController::class, 'index'])->name('perkara.index');
+// Route::get('/perkara', [PerkaraController::class, 'getPerkaraData'])->name('perkara.index');
+Route::get('/perkara', [PerkaraController::class, 'index'])->name('perkara.index');
 
 // Route::get('/perkara-masuk', [PerkaraMasukController::class, 'index'])->name('perkara-masuk.index');
 
