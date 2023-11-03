@@ -4,7 +4,7 @@
             <a href="index.html">Laporan Bulan Perkara</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">SKD</a>
+            <a href="index.html">LBP</a>
         </div>
         <ul class="sidebar-menu">
 
