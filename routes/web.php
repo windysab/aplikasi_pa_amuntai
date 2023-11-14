@@ -1,11 +1,15 @@
 <?php
 
+use App\Models\PerkaraPns;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GaibController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PerkaraController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\PerkaraPnsController;
 use App\Http\Controllers\PerkaraMasukController;
+use App\Http\Controllers\PerkaraEcourtController;
 use App\Http\Controllers\PerkaraMasukControllerBlg;
 
 /*
@@ -37,10 +41,15 @@ Route::get('/', function () {
 
 Route::resource('perkara-masuk', PerkaraMasukController::class);
 Route::resource('perkara-masuk-blg', PerkaraMasukControllerBlg::class);
+// Route::resource('perkara-gaib', PerkaraMasukControllerBlg::class);
 
 // Route::get('/perkara', [PerkaraController::class, 'index'])->name('perkara.index');
 // Route::get('/perkara', [PerkaraController::class, 'getPerkaraData'])->name('perkara.index');
 Route::get('/perkara', [PerkaraController::class, 'index'])->name('perkara.index');
+Route::get('/perkara-gaib', [GaibController::class, 'index'])->name('perkara-gaib.index');
+Route::get('/perkara-pns', [PerkaraPnsController::class, 'index'])->name('perkara-pns.index');
+Route::get('/perkara-ecourt', [PerkaraEcourtController::class, 'index'])->name('perkara-ecourt.index');
+// Route::get('/perkara-ecourt', 'PerkaraEcourtController')->name('perkara-ecourt.index');
 
 // Route::get('/perkara-masuk', [PerkaraMasukController::class, 'index'])->name('perkara-masuk.index');
 

@@ -40,14 +40,33 @@
                 </ul>
             </li>
 
-            {{-- <li class="nav-item dropdown ">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Schedules</span></a>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Perkara Gaib</span></a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a class="nav-link" href="{{ route('schedule.index') }}">Schedule List</a>
+                        <a class="nav-link" href="{{ route('perkara-gaib.index') }}">Perkara Gaib</a>
                     </li>
 
-                </ul> --}}
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Perkara PNS</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('perkara-pns.index') }}">Perkara PNS</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Perkara Ecourt</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('perkara-ecourt.index') }}">Perkara Ecourt</a>
+                    </li>
+
+                </ul>
+            </li>
 
     </aside>
 </div>
