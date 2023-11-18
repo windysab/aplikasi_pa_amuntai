@@ -30,6 +30,7 @@ class PerkaraEcourtController extends Controller
             ->where('perkara.nomor_perkara', 'LIKE', "%$jenis_perkara%")
             ->where('perkara_pihak1.urutan', '=', '1')
             ->orderBy('perkara.perkara_id')
+            // ->get();
             ->paginate(10);
 
         // Data tambahan untuk dropdown filter

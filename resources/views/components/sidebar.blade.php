@@ -67,6 +67,32 @@
 
                 </ul>
             </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Perkara Dispensasi</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('perkara-diska.index') }}">Perkara Dispensasi</a>
+                    </li>
+
+
+                </ul>
+            </li>
+            <li class="nav-item dropdown ">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Semuanya</span></a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('jadwal-sidang.index') }}">Jadwal Sidang</a>
+                    </li>
+
+                </ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="nav-link" href="{{ route('dirput.index') }}">Direkturi Putusan</a>
+                    </li>
+
+                </ul>
+            </li>
+
 
     </aside>
 </div>

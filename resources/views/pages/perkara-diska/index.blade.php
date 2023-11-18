@@ -12,11 +12,20 @@
     <section class="section">
         <div class="section-header">
             <h1>Pengadilan Agama Amuntai Kelas IB</h1>
+            {{-- <p>Bulan: {{ $lap_bulan}}</p> --}}
+            {{-- <p>Tahun: {{ $lap_tahun }}</p> --}}
+            {{-- Pesan error jika tanggal sidang tidak valid atau tidak diberikan --}}
+            {{-- @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+            @endif
+            Pesan sukses --}}
 
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Data</a></div>
-                <div class="breadcrumb-item">Perkara Ecourt</div>
+                <div class="breadcrumb-item">Perkara Dispensasi Kawin</div>
             </div>
         </div>
         <div class="section-body">
@@ -31,9 +40,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Data Perkara Ecourt</h4>
+                            <h4>Data Perkara Dispensasi</h4>
                             <div class="card-header">
-                                <form method="GET" action="{{ route('perkara-ecourt.index') }}">
+                                <form method="GET" action="{{ route('perkara-diska.index') }}">
                                     @csrf
                                     {{-- Kecamatan :
                                     <select name="alamat" required="">
@@ -89,12 +98,15 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
+                                            <th>Nomor</th>
                                             <th>Nomor Perkara</th>
-                                            <th>Nama Pihak</th>
-                                            <th>Email</th>
-                                            <th>Jenis Perkara</th>
                                             <th>Tanggal Pendaftaran</th>
+                                            <th>Tanggal Putus</th>
+                                            <th>Jenis Putusan</th>
+                                            <th>Usia L</th>
+                                            <th>Usia P</th>
+                                            <th>Alasan Pengajuan</th>
+                                            <th>Keterangan Sidang</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -102,11 +114,16 @@
                                         <tr>
                                             <td>{{ $loop->iteration + $perkaras->firstItem() - 1 }}</td>
                                             <td>{{ $perkara->nomor_perkara }}</td>
-                                            <td>{{ $perkara->nama_pihak }}</td>
-                                            <td>{{ $perkara->email }}</td>
-                                            <td>{{ $perkara->jenis_perkara_nama }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($perkara->tanggal_pendaftaran)->format('d/m/Y')
-                                                }}</td>
+                                            <td>{{ $perkara->tanggal_pendaftaran}}</td>
+                                            <td>{{ $perkara->tanggal_putusan}}</td>
+                                            <td>{{ $perkara->jenis_putusan}}</td>
+                                            <td>{{ $perkara->jenis_putusan}}</td>
+                                            <td>{{ $perkara->jenis_putusan}}</td>
+                                            <td>{{ $perkara->alasan_nikah}}</td>
+                                            <td>{{ $perkara->tanggal_sidang }}</td>
+                                            {{-- <td>{{
+                                                \Carbon\Carbon::parse($perkara->tanggal_pendaftaran)->format('d/m/Y')
+                                                }}</td> --}}
                                         </tr>
                                         @empty
                                         <tr>

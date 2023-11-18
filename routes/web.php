@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\DirputController;
+use App\Http\Controllers\DispensasiKawinController;
 use App\Models\PerkaraPns;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GaibController;
+use App\Http\Controllers\JadwalSidangController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PerkaraController;
 use App\Http\Controllers\SubjectController;
@@ -41,7 +44,7 @@ Route::get('/', function () {
 
 Route::resource('perkara-masuk', PerkaraMasukController::class);
 Route::resource('perkara-masuk-blg', PerkaraMasukControllerBlg::class);
-// Route::resource('perkara-gaib', PerkaraMasukControllerBlg::class);
+// Route::resource('jadwal-sidang', JadwalSidangController::class);
 
 // Route::get('/perkara', [PerkaraController::class, 'index'])->name('perkara.index');
 // Route::get('/perkara', [PerkaraController::class, 'getPerkaraData'])->name('perkara.index');
@@ -49,6 +52,10 @@ Route::get('/perkara', [PerkaraController::class, 'index'])->name('perkara.index
 Route::get('/perkara-gaib', [GaibController::class, 'index'])->name('perkara-gaib.index');
 Route::get('/perkara-pns', [PerkaraPnsController::class, 'index'])->name('perkara-pns.index');
 Route::get('/perkara-ecourt', [PerkaraEcourtController::class, 'index'])->name('perkara-ecourt.index');
+Route::get('/perkara-diska', [DispensasiKawinController::class, 'index'])->name('perkara-diska.index');
+Route::get('/jadwal-sidang', [JadwalSidangController::class, 'index'])->name('jadwal-sidang.index');
+Route::get('/dirput', [DirputController::class, 'index'])->name('dirput.index');
+// Route::get('/jadwal-sidang', 'JadwalSidangController@index')->name('jadwal-sidang.index');
 // Route::get('/perkara-ecourt', 'PerkaraEcourtController')->name('perkara-ecourt.index');
 
 // Route::get('/perkara-masuk', [PerkaraMasukController::class, 'index'])->name('perkara-masuk.index');
